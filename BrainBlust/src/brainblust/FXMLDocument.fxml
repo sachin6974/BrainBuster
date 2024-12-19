@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="brainblust.FXMLDocumentController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="347.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="brainblust.FXMLDocumentController">
+   <children>
+      <Label layoutX="112.0" layoutY="47.0" text="Brain Blust" textAlignment="CENTER" textFill="#2d08ff">
+         <font>
+            <Font name="Century" size="23.0" />
+         </font>
+      </Label>
+      <TextField layoutX="99.0" layoutY="101.0" promptText="user id" />
+      <TextField layoutX="99.0" layoutY="149.0" promptText="password" />
+      <Label layoutX="48.0" layoutY="105.0" text="User id:" />
+      <Label layoutX="38.0" layoutY="153.0" text="Password:" />
+      <Button fx:id="btn1" layoutX="147.0" layoutY="195.0" mnemonicParsing="false" onAction="#submit1" text="Submit" />
+      <Hyperlink fx:id="link1" layoutX="119.0" layoutY="233.0" onAction="#link" prefHeight="26.0" prefWidth="112.0" text="Create Account">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Hyperlink>
+   </children>
 </AnchorPane>
