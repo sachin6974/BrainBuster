@@ -53,17 +53,11 @@ public class RegformController implements Initializable {
     String userId = userid.getText();
     String password = passid.getText();
     String fullName = name.getText();
-
-    // Retrieve selected radio button value (e.g., Gender)
     String selectedOption = op1.isSelected() ? op1.getText() : op2.isSelected() ? op2.getText() : "None";
-
-    // Print the captured inputs to the console
     System.out.println("User ID: " + userId);
     System.out.println("Password: " + password);
     System.out.println("Name: " + fullName);
     System.out.println("Selected Option: " + selectedOption);
-
-    // Optional: Add confirmation or validation logic
     if (userId.isEmpty() || password.isEmpty() || fullName.isEmpty()) {
         System.out.println("Please fill in all the fields!");
     } else {
