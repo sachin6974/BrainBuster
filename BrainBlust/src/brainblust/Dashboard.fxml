@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="799.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1">
+   <children>
+      <Label layoutX="441.0" layoutY="39.0" text="Add Questions">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="text1" layoutX="441.0" layoutY="70.0" prefHeight="69.0" prefWidth="294.0" promptText="Enter a question " />
+      <Label layoutX="441.0" layoutY="157.0" text="Add Options">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="option1" layoutX="441.0" layoutY="182.0" promptText="option-1" />
+      <TextField fx:id="option2" layoutX="441.0" layoutY="220.0" promptText="option-2" />
+      <TextField fx:id="option3" layoutX="441.0" layoutY="257.0" promptText="option-3" />
+      <TextField fx:id="option4" layoutX="441.0" layoutY="294.0" promptText="option-4" />
+      <Button fx:id="btn3" layoutX="638.0" layoutY="227.0" mnemonicParsing="false" onAction="#submit3" text="Submit">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

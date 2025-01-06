@@ -27,5 +27,10 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Hyperlink>
+      <Label fx:id="messageLabel" alignment="CENTER" layoutX="49.0" layoutY="347.0" prefHeight="67.0" prefWidth="290.0">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

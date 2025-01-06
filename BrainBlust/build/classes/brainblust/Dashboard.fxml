@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="584.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+
+    <!-- Question Label -->
+    <Label fx:id="questionLabel" text="Question text will appear here" />
+
+    <!-- Radio Buttons for options (grouped in a ToggleGroup) -->
+    <ToggleGroup fx:id="optionsGroup" />
+
+    <RadioButton fx:id="option1" text="Option 1" toggleGroup="$optionsGroup" />
+    <RadioButton fx:id="option2" text="Option 2" toggleGroup="$optionsGroup" />
+    <RadioButton fx:id="option3" text="Option 3" toggleGroup="$optionsGroup" />
+    <RadioButton fx:id="option4" text="Option 4" toggleGroup="$optionsGroup" />
+    
+    <!-- Next Button -->
+    <Button fx:id="nextButton" text="Next" onAction="#handleNextButton" />
+    
+    <!-- Timer Label -->
+    <Label fx:id="timerLabel" text="Time: 10:00" />
+</AnchorPane>

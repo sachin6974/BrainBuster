@@ -34,6 +34,8 @@ public class FXMLDocumentController implements Initializable {
     private TextField userid2;
     @FXML
     private TextField passid2;
+    @FXML
+    private Label messageLabel;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -54,10 +56,12 @@ public class FXMLDocumentController implements Initializable {
     System.out.println("Password: " + password);
     
     if (!userId.isEmpty() && !password.isEmpty()) {
-        System.out.println("Login details submitted successfully!");
+        messageLabel.setText("Login successfully!");
+        messageLabel.setStyle("-fx-text-fill: green;");
     } 
     else {
-        System.out.println("Please fill in both User ID and Password fields.");
+        messageLabel.setText("Enter both User ID and Password!");
+        messageLabel.setStyle("-fx-text-fill: red;");
     }
         
      }

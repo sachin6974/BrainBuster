@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -35,6 +36,8 @@ public class RegformController implements Initializable {
     private TextField name;
     @FXML
     private Button btn2;
+    @FXML
+    private Label messageLabel1;
 
     /**
      * Initializes the controller class.
@@ -59,9 +62,11 @@ public class RegformController implements Initializable {
     System.out.println("Name: " + fullName);
     System.out.println("Selected Option: " + selectedOption);
     if (userId.isEmpty() || password.isEmpty() || fullName.isEmpty()) {
-        System.out.println("Please fill in all the fields!");
+        messageLabel1.setText("Please fill in all the fields!");
+        messageLabel1.setStyle("-fx-text-fill: red;");
     } else {
-        System.out.println("Registration Successful!");
+        messageLabel1.setText("Registration success!");
+        messageLabel1.setStyle("-fx-text-fill: green;"); 
     }
     }
     
