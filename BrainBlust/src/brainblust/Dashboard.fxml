@@ -2,12 +2,12 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="799.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1">
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="brainblust.DashboardController">
    <children>
       <Label layoutX="441.0" layoutY="39.0" text="Add Questions">
          <font>
@@ -24,7 +24,18 @@
       <TextField fx:id="option2" layoutX="441.0" layoutY="220.0" promptText="option-2" />
       <TextField fx:id="option3" layoutX="441.0" layoutY="257.0" promptText="option-3" />
       <TextField fx:id="option4" layoutX="441.0" layoutY="294.0" promptText="option-4" />
-      <Button fx:id="btn3" layoutX="638.0" layoutY="227.0" mnemonicParsing="false" onAction="#submit3" text="Submit">
+      <Button fx:id="btn3" layoutX="639.0" layoutY="189.0" mnemonicParsing="false" onAction="#submit3" text="Submit" textAlignment="CENTER" textFill="#25c930">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+      <ListView fx:id="questionList_View" layoutX="25.0" layoutY="19.0" prefHeight="586.0" prefWidth="394.0" />
+      <Button fx:id="btn4" layoutX="639.0" layoutY="239.0" mnemonicParsing="false" onAction="#update" text="Update" textAlignment="CENTER" textFill="#2b38cc">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn5" layoutX="639.0" layoutY="288.0" mnemonicParsing="false" onAction="#delete" prefHeight="37.0" prefWidth="75.0" text="Delete" textAlignment="CENTER" textFill="#ef2222">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>

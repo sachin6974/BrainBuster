@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="brainblust.RegformController">
    <children>
-      <Label alignment="CENTER" layoutX="95.0" layoutY="55.0" prefHeight="50.0" prefWidth="210.0" text="Brain Blust" textFill="#3d17ff">
+      <Label alignment="CENTER" layoutX="95.0" layoutY="55.0" prefHeight="50.0" prefWidth="210.0" text="Brain Bust" textFill="#3d17ff">
          <font>
             <Font name="Century" size="28.0" />
          </font>
@@ -24,7 +24,7 @@
             <ToggleGroup fx:id="radiobutton" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="op1" layoutX="125.0" layoutY="241.0" mnemonicParsing="false" onAction="#radiobutton" selected="true" text="Female" toggleGroup="$radiobutton" />
+      <RadioButton fx:id="op1" layoutX="125.0" layoutY="241.0" mnemonicParsing="false" onAction="#radiobutton" text="Female" toggleGroup="$radiobutton" />
       <Label layoutX="67.0" layoutY="240.0" text="Gender: ">
          <font>
             <Font size="14.0" />

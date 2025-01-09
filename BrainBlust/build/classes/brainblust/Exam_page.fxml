@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="701.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="brainblust.Exam_pageController">
+   <children>
+      <ListView layoutX="46.0" layoutY="114.0" prefHeight="326.0" prefWidth="363.0" />
+      <Label alignment="CENTER" layoutX="66.0" layoutY="26.0" prefHeight="72.0" prefWidth="585.0" text="Welcome to BrainBrust Online Exam Portal" textAlignment="CENTER">
+         <font>
+            <Font name="Constantia" size="28.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="482.0" layoutY="114.0" prefHeight="139.0" prefWidth="195.0" text="Sachin Kumar Das">
+         <font>
+            <Font name="Bodoni MT Bold" size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="examfinised" layoutX="510.0" layoutY="364.0" mnemonicParsing="false" onAction="#finished" prefHeight="38.0" prefWidth="144.0" text="Exam Finished" textFill="#ec106c">
+         <font>
+            <Font name="Cambria Bold" size="15.0" />
+         </font>
+      </Button>
+      <TextArea layoutX="448.0" layoutY="440.0" prefHeight="227.0" prefWidth="235.0" promptText="Score Board">
+         <font>
+            <Font size="22.0" />
+         </font></TextArea>
+      <VBox layoutX="46.0" layoutY="458.0" prefHeight="139.0" prefWidth="159.0">
+         <children>
+            <RadioButton fx:id="S1" graphicTextGap="10.0" mnemonicParsing="false" onAction="#questionop" text="Option1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <toggleGroup>
+                  <ToggleGroup fx:id="option" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="S2" mnemonicParsing="false" onAction="#questionop" text="Option2" toggleGroup="$option" />
+            <RadioButton fx:id="S3" mnemonicParsing="false" onAction="#questionop" text="Option3" toggleGroup="$option" />
+            <RadioButton fx:id="S4" mnemonicParsing="false" onAction="#questionop" text="Option4" toggleGroup="$option" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

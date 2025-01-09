@@ -1,11 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML2.java to edit this template
- */
 package brainblust;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,13 +17,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-/**
- *
- * @author DELL
- */
 public class FXMLDocumentController implements Initializable {
     
-    private Label label;
     @FXML
     private Button btn1;
     @FXML
@@ -37,43 +30,63 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label messageLabel;
     
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
+    // Static Admin credentials
+    private static final String ADMIN_USERNAME = "admin";
+    private static final String ADMIN_PASSWORD = "admin123";
+
+    // Sample dynamic user credentials (You can replace this with database interaction)
+    private Map<String, String> userDatabase = new HashMap<>();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // Initialize a sample dynamic user list
+        userDatabase.put("user1", "password1");
+        userDatabase.put("user2", "password2");
     }    
 
     @FXML
-    private void submit1(ActionEvent event) {
-         String userId = userid2.getText();
-    String password = passid2.getText();
+    private void submit1(ActionEvent event) throws IOException {
+        String userId = userid2.getText();
+        String password = passid2.getText();
 
-    System.out.println("User ID: " + userId);
-    System.out.println("Password: " + password);
-    
-    if (!userId.isEmpty() && !password.isEmpty()) {
-        messageLabel.setText("Login successfully!");
-        messageLabel.setStyle("-fx-text-fill: green;");
-    } 
-    else {
-        messageLabel.setText("Enter both User ID and Password!");
-        messageLabel.setStyle("-fx-text-fill: red;");
+        // Check if user is Admin
+        if (userId.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)) {
+            messageLabel.setText("Admin Login successful!");
+            messageLabel.setStyle("-fx-text-fill: blue;");
+            
+            // Load Admin Dashboard
+            loadDashboard();
+        } 
+        // Check if user is in the dynamic user list
+        else if (userDatabase.containsKey(userId) && userDatabase.get(userId).equals(password)) {
+            messageLabel.setText("User Login successful!");
+            messageLabel.setStyle("-fx-text-fill: green;");
+            
+            // Load User Dashboard
+            loadDashboard();
+        } 
+        else {
+            messageLabel.setText("Invalid User ID or Password!");
+            messageLabel.setStyle("-fx-text-fill: red;");
+        }
     }
-        
-     }
+
+    private void loadDashboard() throws IOException {
+        // Load the Dashboard scene
+        Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+        Stage stage = (Stage) btn1.getScene().getWindow();  // Get current window
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Dashboard");  // Set title of the dashboard
+        stage.show();
+    }
 
     @FXML
     private void link(ActionEvent event) throws IOException {
        Parent root = FXMLLoader.load(getClass().getResource("Regform.fxml"));
        Stage stage = (Stage) ((Hyperlink) event.getSource()).getScene().getWindow();
        stage.setScene(new Scene(root));
-       stage.setTitle("Ragistration Form");
+       stage.setTitle("Registration Form");
        stage.show();
-       
     }
-    
 }
