@@ -2,8 +2,6 @@ package brainblust;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class FXMLDocumentController implements Initializable {
-    
+
     @FXML
     private Button btn1;
     @FXML
@@ -29,66 +27,54 @@ public class FXMLDocumentController implements Initializable {
     private TextField passid2;
     @FXML
     private Label messageLabel;
-    
-    // Admin
-    private static final String ADMIN_USERNAME = "admin";
-    private static final String ADMIN_PASSWORD = "admin123";
-
-   
-    private Map<String, String> userDatabase = new HashMap<>();
     @FXML
     private Hyperlink link2;
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // Initialize a sample dynamic user list
-        userDatabase.put("user1", "password1");
-        userDatabase.put("user2", "password2");
-    }    
 
     @FXML
-    private void submit1(ActionEvent event) throws IOException {
+    private void submit1(ActionEvent event) {
         String userId = userid2.getText();
         String password = passid2.getText();
 
-       
-        if (userId.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)) {
-            messageLabel.setText("Admin Login successful!");
-            messageLabel.setStyle("-fx-text-fill: blue;");
-            
-            loadDashboard();
-        } 
-        else if (userDatabase.containsKey(userId) && userDatabase.get(userId).equals(password)) {
-            messageLabel.setText("User Login successful!");
-            messageLabel.setStyle("-fx-text-fill: green;");
-            
-            loadDashboard();
-        } 
-        else {
-            messageLabel.setText("Invalid User ID or Password!");
-            messageLabel.setStyle("-fx-text-fill: red;");
+        System.out.println("User ID: " + userId);
+        System.out.println("Password: " + password);
+
+        if (!userId.isEmpty() && !password.isEmpty()) {
+            System.out.println("Submitted Successfully!");
+            messageLabel.setText("Login Success");
+        } else {
+            System.out.println("Please fill in both User ID and Password fields!");
+            messageLabel.setText("Login Not Successful");
         }
     }
 
-    private void loadDashboard() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-        Stage stage = (Stage) btn1.getScene().getWindow();  // Get current window
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Dashboard");  
-        stage.show();
-    }
-
     @FXML
-    private void link(ActionEvent event) throws IOException {
-       Parent root = FXMLLoader.load(getClass().getResource("Regform.fxml"));
-       Stage stage = (Stage) ((Hyperlink) event.getSource()).getScene().getWindow();
-       stage.setScene(new Scene(root));
-       stage.setTitle("Registration Form");
-       stage.show();
+    private void link(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("Regform.fxml"));
+            Stage stage = (Stage) ((Hyperlink) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Registration Form");
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Error loading Regform.fxml: " + e.getMessage());
+        }
     }
 
     @FXML
     private void linkk(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("AdminLogin.fxml"));
+            Stage stage = (Stage) ((Hyperlink) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Admin Login Form");
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Error loading AdminLogin.fxml: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // Initialize any required logic here.
     }
 }
