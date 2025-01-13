@@ -36,26 +36,37 @@ public class AdminLoginController implements Initializable {
         // Initialization logic if needed
     }
 
-    @FXML
-    private void submit(ActionEvent event) {
-        String adminId = adminid.getText().trim();
-        String adminPassword = adminpass.getText().trim();
+ @FXML
+private void submit(ActionEvent event) {
+    String adminId = adminid.getText().trim();
+    String adminPassword = adminpass.getText().trim();
 
-        // Direct validation using if-else with new credentials
-        if ("sachin2025".equals(adminId) && "1234".equals(adminPassword)) {
-            msglabeladmin.setText("Admin Login Successful!");
-            msglabeladmin.setStyle("-fx-text-fill: green;");
-            System.out.println("Admin login successful!");
-        } else {
-            msglabeladmin.setText("Invalid Admin ID or Password!");
-            msglabeladmin.setStyle("-fx-text-fill: red;");
-            System.out.println("Admin login failed!");
+    if ("sachin2025".equals(adminId) && "1234".equals(adminPassword)) {
+        msglabeladmin.setText("Admin Login Successful!");
+        msglabeladmin.setStyle("-fx-text-fill: green;");
+        System.out.println("Admin login successful!");
+
+        // Load the Dashboard
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) adminsubmit.getScene().getWindow(); 
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            msglabeladmin.setText("Error loading dashboard!");
         }
+    } else {
+        msglabeladmin.setText("Invalid Admin ID or Password!");
+        msglabeladmin.setStyle("-fx-text-fill: red;");
+        System.out.println("Admin login failed!");
     }
-    
-    
+}
 
-    @FXML
+   
+
+   @FXML
     private void loginstudent(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));

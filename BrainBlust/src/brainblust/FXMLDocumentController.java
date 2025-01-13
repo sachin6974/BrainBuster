@@ -15,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+
+
 public class FXMLDocumentController implements Initializable {
 
     @FXML
@@ -30,23 +32,33 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Hyperlink link2;
 
-    @FXML
-    private void submit1(ActionEvent event) {
-        String userId = userid2.getText();
-        String password = passid2.getText();
+   @FXML
+private void submit1(ActionEvent event) {
+    String userId = userid2.getText();
+    String password = passid2.getText();
 
-        System.out.println("User ID: " + userId);
-        System.out.println("Password: " + password);
+    if (!userId.isEmpty() && !password.isEmpty()) {
+        System.out.println("Submitted Successfully!");
+        messageLabel.setText("Login Success");
 
-        if (!userId.isEmpty() && !password.isEmpty()) {
-            System.out.println("Submitted Successfully!");
-            messageLabel.setText("Login Success");
-        } else {
-            System.out.println("Please fill in both User ID and Password fields!");
-            messageLabel.setText("Login Not Successful");
+        // Load the Exam Page
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Exam_page.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) btn1.getScene().getWindow(); 
+            stage.setScene(new Scene(root)); 
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            messageLabel.setText("Error loading exam page!");
         }
+    } else {
+        System.out.println("Please fill in both User ID and Password fields!");
+        messageLabel.setText("Login Not Successful");
     }
+}
 
+    
     @FXML
     private void link(ActionEvent event) {
         try {
@@ -59,7 +71,8 @@ public class FXMLDocumentController implements Initializable {
             System.out.println("Error loading Regform.fxml: " + e.getMessage());
         }
     }
-
+    
+ 
     @FXML
     private void linkk(ActionEvent event) {
         try {
