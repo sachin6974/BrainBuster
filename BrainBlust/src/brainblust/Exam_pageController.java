@@ -7,7 +7,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 
 public class Exam_pageController implements Initializable {
@@ -25,6 +27,12 @@ public class Exam_pageController implements Initializable {
     @FXML
     private RadioButton S4;
     private Label informationLabel;
+    @FXML
+    private ListView<?> listviewQs;
+    @FXML
+    private Label informationlabel;
+    @FXML
+    private TextArea textarea;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

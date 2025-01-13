@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="brainblust.FXMLDocumentController">
    <children>
-      <Label layoutX="138.0" layoutY="80.0" text="Brain Blust" textAlignment="CENTER" textFill="#2d08ff">
+      <Label layoutX="62.0" layoutY="81.0" text="Brain Brust Student Login" textAlignment="CENTER" textFill="#2d08ff">
          <font>
             <Font name="Century" size="23.0" />
          </font>
@@ -32,5 +32,10 @@
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>
       </Label>
+      <Hyperlink fx:id="link2" layoutX="283.0" layoutY="28.0" onAction="#linkk" text="Admin Login">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Hyperlink>
    </children>
 </AnchorPane>

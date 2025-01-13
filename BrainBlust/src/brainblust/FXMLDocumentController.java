@@ -36,6 +36,8 @@ public class FXMLDocumentController implements Initializable {
 
     // Sample dynamic user credentials (You can replace this with database interaction)
     private Map<String, String> userDatabase = new HashMap<>();
+    @FXML
+    private Hyperlink link2;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -88,5 +90,9 @@ public class FXMLDocumentController implements Initializable {
        stage.setScene(new Scene(root));
        stage.setTitle("Registration Form");
        stage.show();
+    }
+
+    @FXML
+    private void linkk(ActionEvent event) {
     }
 }
