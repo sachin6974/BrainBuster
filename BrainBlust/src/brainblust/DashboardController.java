@@ -29,13 +29,13 @@ public class DashboardController implements Initializable {
     @FXML
     private ListView<String> questionList_View;
     @FXML
-    private Button btn4; // Update button
+    private Button btn4; 
     @FXML
-    private Button btn5; // Delete button
+    private Button btn5; 
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/brainblust_db";  // Change to your DB URL
-    private static final String DB_USER = "root";  // MySQL default user
-    private static final String DB_PASSWORD = "";  // MySQL default password
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/brainblust_db";  
+    private static final String DB_USER = "root";  
+    private static final String DB_PASSWORD = "";  
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -72,7 +72,7 @@ public class DashboardController implements Initializable {
                 stmt.executeUpdate();
 
                 showAlert("Success", "Question added successfully!");
-                loadQuestions(); // Refresh the ListView
+                loadQuestions(); 
                 clearFields();
             } catch (SQLException e) {
                 e.printStackTrace();

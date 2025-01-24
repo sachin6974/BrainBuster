@@ -21,19 +21,19 @@ import javafx.stage.Stage;
 public class AdminLoginController implements Initializable {
 
     @FXML
-    private TextField adminid; // TextField for Admin ID
+    private TextField adminid; 
     @FXML
-    private TextField adminpass; // TextField for Admin Password
+    private TextField adminpass; 
     @FXML
-    private Button adminsubmit; // Button to submit login
+    private Button adminsubmit; 
     @FXML
-    private Label msglabeladmin; // Label to display login message
+    private Label msglabeladmin; 
     @FXML
-    private Hyperlink studentlogin; // Hyperlink for switching to student login
+    private Hyperlink studentlogin; 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Initialization logic if needed
+       
     }
 
  @FXML
