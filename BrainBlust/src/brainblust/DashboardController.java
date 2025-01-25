@@ -25,13 +25,15 @@ public class DashboardController implements Initializable {
     @FXML
     private TextField option4;
     @FXML
+    private TextField correctOption;  // New TextField for correct option
+    @FXML
     private Button btn3;
     @FXML
     private ListView<String> questionList_View;
     @FXML
-    private Button btn4; 
+    private Button btn4;
     @FXML
-    private Button btn5; 
+    private Button btn5;
 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/brainblust_db";  
     private static final String DB_USER = "root";  
@@ -59,16 +61,18 @@ public class DashboardController implements Initializable {
         String option9 = option2.getText();
         String option8 = option3.getText();
         String option7 = option4.getText();
+        String correctAnswer = correctOption.getText();  // Get the correct answer from the TextField
 
-        if (!question.isEmpty() && !option0.isEmpty() && !option9.isEmpty() && !option8.isEmpty() && !option7.isEmpty()) {
+        if (!question.isEmpty() && !option0.isEmpty() && !option9.isEmpty() && !option8.isEmpty() && !option7.isEmpty() && !correctAnswer.isEmpty()) {
             try (Connection conn = connectDB()) {
-                String query = "INSERT INTO questions (question, option1, option2, option3, option4) VALUES (?, ?, ?, ?, ?)";
+                String query = "INSERT INTO questions (question, option1, option2, option3, option4, correct_option) VALUES (?, ?, ?, ?, ?, ?)";
                 PreparedStatement stmt = conn.prepareStatement(query);
                 stmt.setString(1, question);
                 stmt.setString(2, option0);
                 stmt.setString(3, option9);
                 stmt.setString(4, option8);
                 stmt.setString(5, option7);
+                stmt.setString(6, correctAnswer);  // Insert the correct answer into the database
                 stmt.executeUpdate();
 
                 showAlert("Success", "Question added successfully!");
@@ -94,7 +98,8 @@ public class DashboardController implements Initializable {
                                       "1. " + rs.getString("option1") + "\n" +
                                       "2. " + rs.getString("option2") + "\n" +
                                       "3. " + rs.getString("option3") + "\n" +
-                                      "4. " + rs.getString("option4");
+                                      "4. " + rs.getString("option4") + "\n" +
+                                      "Correct: " + rs.getString("correct_option");
                 questionList_View.getItems().add(fullQuestion);
             }
         } catch (SQLException e) {
@@ -112,10 +117,11 @@ public class DashboardController implements Initializable {
             String option9 = option2.getText();
             String option8 = option3.getText();
             String option7 = option4.getText();
+            String correctAnswer = correctOption.getText();  // Get the correct answer from the TextField
 
-            if (!question.isEmpty() && !option0.isEmpty() && !option9.isEmpty() && !option8.isEmpty() && !option7.isEmpty()) {
+            if (!question.isEmpty() && !option0.isEmpty() && !option9.isEmpty() && !option8.isEmpty() && !option7.isEmpty() && !correctAnswer.isEmpty()) {
                 try (Connection conn = connectDB()) {
-                    String query = "UPDATE questions SET question = ?, option1 = ?, option2 = ?, option3 = ?, option4 = ? WHERE id = ?";
+                    String query = "UPDATE questions SET question = ?, option1 = ?, option2 = ?, option3 = ?, option4 = ?, correct_option = ? WHERE id = ?";
                     PreparedStatement stmt = conn.prepareStatement(query);
 
                     // Assume the ID is stored in the ListView's backing data (you'll need to track IDs)
@@ -125,7 +131,8 @@ public class DashboardController implements Initializable {
                     stmt.setString(3, option9);
                     stmt.setString(4, option8);
                     stmt.setString(5, option7);
-                    stmt.setInt(6, id);
+                    stmt.setString(6, correctAnswer);  // Update the correct answer
+                    stmt.setInt(7, id);
 
                     stmt.executeUpdate();
                     showAlert("Success", "Question updated successfully!");
@@ -173,6 +180,7 @@ public class DashboardController implements Initializable {
         option2.clear();
         option3.clear();
         option4.clear();
+        correctOption.clear();  // Clear the correct answer field
     }
 
     private void showAlert(String title, String message) {

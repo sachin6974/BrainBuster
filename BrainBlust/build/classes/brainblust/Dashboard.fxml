@@ -40,5 +40,6 @@
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Button>
+      <TextField fx:id="correctOption" layoutX="442.0" layoutY="337.0" promptText="Correct_answer" />
    </children>
 </AnchorPane>
